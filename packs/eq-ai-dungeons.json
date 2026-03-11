@@ -1,0 +1,9 @@
+{
+  "name": "EQ AI Dungeons",
+  "type": "eq-ai-dungeons",
+  "system": {
+    "ecosystems": [ /* ai_dungeon_ecosystem */ ],
+    "biomes": [ /* biome_ice_cavern, biome_lava_forge, etc. */ ],
+    "generator": { /* ai_dungeon_generator */ }
+  }
+}

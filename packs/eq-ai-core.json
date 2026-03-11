@@ -1,0 +1,151 @@
+{
+  "name": "EQ AI Core",
+  "type": "eq-ai-core",
+  "system": {
+
+    /* ===================================================== */
+    /*                     ROLE PROFILES                     */
+    /* ===================================================== */
+
+    "roles": [
+      {
+        "name": "tank",
+        "system": {
+          "targeting": {
+            "primary": "highest_dps",
+            "secondary": "nearest",
+            "protectRole": "healer"
+          },
+          "behavior": {
+            "threatFocus": "high",
+            "riskTolerance": "medium",
+            "retreatBelow": 0.10
+          }
+        }
+      },
+      {
+        "name": "melee_dps",
+        "system": {
+          "targeting": {
+            "primary": "lowest_hp",
+            "secondary": "squishy",
+            "avoid": "tank"
+          },
+          "behavior": {
+            "burstPriority": "high",
+            "riskTolerance": "high",
+            "retreatBelow": 0.05
+          }
+        }
+      },
+      {
+        "name": "ranged_dps",
+        "system": {
+          "targeting": {
+            "primary": "lowest_resist",
+            "secondary": "caster"
+          },
+          "behavior": {
+            "kite": true,
+            "maintainDistance": 30
+          }
+        }
+      },
+      {
+        "name": "caster",
+        "system": {
+          "behavior": {
+            "prioritizeCC": true,
+            "avoidMelee": true,
+            "kiteIfTargeted": true
+          }
+        }
+      },
+      {
+        "name": "healer",
+        "system": {
+          "behavior": {
+            "healPriority": "highest",
+            "protectSelf": "medium",
+            "avoidMelee": true
+          }
+        }
+      }
+    ],
+
+    /* ===================================================== */
+    /*                   PERSONALITY PACKS                   */
+    /* ===================================================== */
+
+    "personalities": [
+      {
+        "name": "berserk",
+        "system": {
+          "riskTolerance": "extreme",
+          "cooldownUsage": "early",
+          "targetSwitching": "low",
+          "retreatBelow": 0
+        }
+      },
+      {
+        "name": "disciplined",
+        "system": {
+          "riskTolerance": "medium",
+          "cooldownUsage": "optimal",
+          "targetSwitching": "low",
+          "retreatBelow": 0.15
+        }
+      },
+      {
+        "name": "opportunist",
+        "system": {
+          "riskTolerance": "low",
+          "cooldownUsage": "situational",
+          "targetSwitching": "high",
+          "avoidTank": true
+        }
+      },
+      {
+        "name": "fanatic",
+        "system": {
+          "riskTolerance": "high",
+          "neverRetreat": true,
+          "focusOnFactionEnemies": true
+        }
+      }
+    ],
+
+    /* ===================================================== */
+    /*                   AWARENESS PACKS                     */
+    /* ===================================================== */
+
+    "awareness": [
+      {
+        "name": "standard",
+        "system": {
+          "usesCover": false,
+          "respectsCrowdControl": true,
+          "protectsCasters": false,
+          "ignoresTaunt": false
+        }
+      },
+      {
+        "name": "elite",
+        "system": {
+          "usesCover": true,
+          "respectsCrowdControl": true,
+          "protectsCasters": true,
+          "ignoresTaunt": false
+        }
+      },
+      {
+        "name": "fanatic",
+        "system": {
+          "usesCover": false,
+          "respectsCrowdControl": false,
+          "protectsCasters": false,
+          "ignoresTaunt": true
+        }
+      }
+    ],
+  }

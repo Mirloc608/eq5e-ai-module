@@ -1,0 +1,276 @@
+{
+  "name": "EQ-5e AI Profile Compendium",
+  "type": "aiprofiles",
+  "system": {
+
+    /* ===================================================== */
+    /*                     ROLE PROFILES                     */
+    /* ===================================================== */
+
+    "roles": [
+      {
+        "name": "tank",
+        "system": {
+          "targeting": {
+            "primary": "highest_dps",
+            "secondary": "nearest",
+            "protectRole": "healer"
+          },
+          "behavior": {
+            "threatFocus": "high",
+            "riskTolerance": "medium",
+            "retreatBelow": 0.10
+          }
+        }
+      },
+      {
+        "name": "melee_dps",
+        "system": {
+          "targeting": {
+            "primary": "lowest_hp",
+            "secondary": "squishy",
+            "avoid": "tank"
+          },
+          "behavior": {
+            "burstPriority": "high",
+            "riskTolerance": "high",
+            "retreatBelow": 0.05
+          }
+        }
+      },
+      {
+        "name": "ranged_dps",
+        "system": {
+          "targeting": {
+            "primary": "lowest_resist",
+            "secondary": "caster"
+          },
+          "behavior": {
+            "kite": true,
+            "maintainDistance": 30
+          }
+        }
+      },
+      {
+        "name": "caster",
+        "system": {
+          "behavior": {
+            "prioritizeCC": true,
+            "avoidMelee": true,
+            "kiteIfTargeted": true
+          }
+        }
+      },
+      {
+        "name": "healer",
+        "system": {
+          "behavior": {
+            "healPriority": "highest",
+            "protectSelf": "medium",
+            "avoidMelee": true
+          }
+        }
+      }
+    ],
+
+    /* ===================================================== */
+    /*                   PERSONALITY PACKS                   */
+    /* ===================================================== */
+
+    "personalities": [
+      {
+        "name": "berserk",
+        "system": {
+          "riskTolerance": "extreme",
+          "cooldownUsage": "early",
+          "targetSwitching": "low",
+          "retreatBelow": 0
+        }
+      },
+      {
+        "name": "disciplined",
+        "system": {
+          "riskTolerance": "medium",
+          "cooldownUsage": "optimal",
+          "targetSwitching": "low",
+          "retreatBelow": 0.15
+        }
+      },
+      {
+        "name": "opportunist",
+        "system": {
+          "riskTolerance": "low",
+          "cooldownUsage": "situational",
+          "targetSwitching": "high",
+          "avoidTank": true
+        }
+      },
+      {
+        "name": "fanatic",
+        "system": {
+          "riskTolerance": "high",
+          "neverRetreat": true,
+          "focusOnFactionEnemies": true
+        }
+      }
+    ],
+
+    /* ===================================================== */
+    /*                   AWARENESS PACKS                     */
+    /* ===================================================== */
+
+    "awareness": [
+      {
+        "name": "standard",
+        "system": {
+          "usesCover": false,
+          "respectsCrowdControl": true,
+          "protectsCasters": false,
+          "ignoresTaunt": false
+        }
+      },
+      {
+        "name": "elite",
+        "system": {
+          "usesCover": true,
+          "respectsCrowdControl": true,
+          "protectsCasters": true,
+          "ignoresTaunt": false
+        }
+      },
+      {
+        "name": "fanatic",
+        "system": {
+          "usesCover": false,
+          "respectsCrowdControl": false,
+          "protectsCasters": false,
+          "ignoresTaunt": true
+        }
+      }
+    ],
+
+
+
+    /* ===================================================== */
+    /*                FACTION BEHAVIOR PACKS                 */
+    /* ===================================================== */
+
+    "factions": [
+      {
+        "name": "Crimson Vanguard",
+        "system": {
+          "neverRetreat": true,
+          "assistAllies": true,
+          "focusEnemiesOfFaction": ["Emerald Covenant"]
+        }
+      },
+      {
+        "name": "Emerald Covenant",
+        "system": {
+          "protectNatureNodes": true,
+          "focusEnemiesOfFaction": ["Crimson Vanguard"]
+        }
+      },
+      {
+        "name": "Voidborne",
+        "system": {
+          "ignorePain": true,
+          "summonReinforcements": true
+        }
+      }
+    ],
+
+    /* ===================================================== */
+    /*                     AI DIRECTOR                       */
+    /* ===================================================== */
+
+    "director": {
+      "onEncounterStart": ["spawn_intro_minions", "play_intro_vo"],
+      "onFirstBlood": ["increase_enemy_aggression"],
+      "onBossBelow75": ["trigger_phase_two"],
+      "onBossBelow40": ["summon_reinforcements"],
+      "onBossBelow20": ["trigger_final_phase"],
+      "onPartyWipeRisk": ["reduce_enemy_aggression", "delay_abilities"],
+      "difficulty": {
+        "aggressionScale": 1.0,
+        "cooldownScale": 1.0,
+        "damageScale": 1.0,
+        "healingScale": 1.0
+      }
+    },
+
+    /* ===================================================== */
+    /*                    NPC TEMPLATES                      */
+    /* ===================================================== */
+
+    "npcTemplates": [
+      {
+        "name": "Crimson Vanguard Captain",
+        "system": {
+          "class": "Warrior",
+          "level": 45,
+          "faction": "Crimson Vanguard",
+          "aiProfile": {
+            "role": "tank",
+            "personality": "disciplined",
+            "tacticProfile": "frontline_bulwark",
+            "classProfile": "warrior",
+            "awareness": "elite",
+            "scriptHooks": {
+              "onEngage": ["battle_shout"],
+              "onHealthThreshold": [
+                { "threshold": 0.50, "actions": ["use_defensive"] },
+                { "threshold": 0.20, "actions": ["call_for_help"] }
+              ]
+            }
+          }
+        }
+      },
+
+      {
+        "name": "Void-Touched Sorcerer",
+        "system": {
+          "class": "Wizard",
+          "level": 60,
+          "faction": "Voidborne",
+          "aiProfile": {
+            "role": "caster",
+            "personality": "fanatic",
+            "tacticProfile": "kite_and_burn",
+            "classProfile": "wizard",
+            "awareness": "standard",
+            "scriptHooks": {
+              "onEngage": ["void_monologue"],
+              "onHealthThreshold": [
+                { "threshold": 0.60, "actions": ["summon_voidlings"] },
+                { "threshold": 0.30, "actions": ["cast_mass_fear"] }
+              ]
+            }
+          }
+        }
+      },
+
+      {
+        "name": "Emerald Covenant Assassin",
+        "system": {
+          "class": "Rogue",
+          "level": 50,
+          "faction": "Emerald Covenant",
+          "aiProfile": {
+            "role": "melee_dps",
+            "personality": "opportunist",
+            "tacticProfile": "ambush_and_burst",
+            "classProfile": "rogue",
+            "awareness": "elite",
+            "scriptHooks": {
+              "onEngage": ["open_from_stealth"],
+              "onHealthThreshold": [
+                { "threshold": 0.25, "actions": ["evade"] }
+              ]
+            }
+          }
+        }
+      }
+    ]
+  }
+}

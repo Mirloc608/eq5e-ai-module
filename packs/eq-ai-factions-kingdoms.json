@@ -1,0 +1,12 @@
+{
+  "name": "EQ AI Factions & Kingdoms",
+  "type": "eq-ai-factions-kingdoms",
+  "system": {
+    "factions": [ /* EQ‑inspired but generic: “Crimson Vanguard”, “Emerald Covenant”, etc. */ ],
+    "factionReactions": { /* faction_reaction_system */ },
+    "kingdoms": { /* ai_kingdom_simulation */ },
+    "politics": { /* ai_political_system */ },
+    "diplomacyEngine": { /* ai_kingdom_diplomacy_engine */ },
+    "warfareEngine": { /* ai_kingdom_warfare_engine */ }
+  }
+}

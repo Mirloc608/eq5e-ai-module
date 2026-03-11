@@ -1,0 +1,13 @@
+{
+  "name": "EQ AI Social & Personality",
+  "type": "eq-ai-social",
+  "system": {
+    "socialTactics": [ /* idle_civilian_basic, patrol_route_guard, gossip_cluster_villager, etc. */ ],
+    "socialPersonalities": [ /* friendly, stoic, skittish, hostile, etc. */ ],
+    "socialAwareness": [ /* observant, oblivious, militant, etc. */ ],
+    "emotionEngine": { /* emotional_state_engine */ },
+    "memorySystem": { /* ai_memory_system */ },
+    "reputationSystem": { /* ai_reputation_system */ },
+    "dialoguePacks": [ /* ai_dialogue_pack */ ]
+  }
+}

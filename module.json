@@ -1,0 +1,73 @@
+{
+  "id": "eq5e-ai-module",
+  "title": "EQ‑5e AI Module",
+  "description": "A modular AI and world-simulation framework for the EQ‑5e Foundry VTT system.",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "David (Mirloc608)",
+      "url": "https://github.com/Mirloc608",
+      "role": "Developer"
+    }
+  ],
+  "url": "https://github.com/Mirloc608/eq5e-ai-module",
+  "manifest": "https://raw.githubusercontent.com/Mirloc608/eq5e-ai-module/main/module.json",
+  "download": "https://github.com/Mirloc608/eq5e-ai-module/releases/latest/download/eq5e-ai-module-v0.1.0.zip",
+  "license": "MIT",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "11",
+    "maximum": "12"
+  },
+  "packs": [
+    {
+      "name": "eq-ai-core",
+      "label": "EQ AI Core",
+      "path": "packs/eq-ai-core.json",
+      "type": "Item",
+      "system": "eq5e"
+    },
+    {
+      "name": "eq-ai-combat-packs",
+      "label": "EQ AI Combat Packs",
+      "path": "packs/eq-ai-combat-packs.json",
+      "type": "Item",
+      "system": "eq5e"
+    },
+    {
+      "name": "eq-ai-social",
+      "label": "EQ AI Social",
+      "path": "packs/eq-ai-social.json",
+      "type": "Item",
+      "system": "eq5e"
+    },
+    {
+      "name": "eq-ai-factions-kingdoms",
+      "label": "EQ AI Factions & Kingdoms",
+      "path": "packs/eq-ai-factions-kingdoms.json",
+      "type": "Item",
+      "system": "eq5e"
+    },
+    {
+      "name": "eq-ai-world-sim",
+      "label": "EQ AI World Simulation",
+      "path": "packs/eq-ai-world-sim.json",
+      "type": "Item",
+      "system": "eq5e"
+    },
+    {
+      "name": "eq-ai-dungeons",
+      "label": "EQ AI Dungeons",
+      "path": "packs/eq-ai-dungeons.json",
+      "type": "Item",
+      "system": "eq5e"
+    },
+    {
+      "name": "eq-ai-npc-templates",
+      "label": "EQ AI NPC Templates",
+      "path": "packs/eq-ai-npc-templates.json",
+      "type": "Actor",
+      "system": "eq5e"
+    }
+  ]
+}

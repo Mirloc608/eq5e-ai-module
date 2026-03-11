@@ -1,0 +1,130 @@
+{
+  "name": "EQ AI Combat Packs",
+  "type": "eq-ai-combat",
+  "system": {
+     /* ===================================================== */
+    /*                    TACTIC PROFILES                    */
+    /* ===================================================== */
+
+    "tactics": [
+      {
+        "name": "frontline_bulwark",
+        "system": {
+          "positioning": "frontline",
+          "priority": [
+            "maintain_threat",
+            "interrupt_casters",
+            "use_defensive",
+            "deal_damage"
+          ],
+          "riskTolerance": "medium"
+        }
+      },
+      {
+        "name": "kite_and_burn",
+        "system": {
+          "positioning": "ranged",
+          "maintainDistance": 30,
+          "priority": [
+            "apply_dot",
+            "snare_target",
+            "kite",
+            "burst_damage"
+          ]
+        }
+      },
+      {
+        "name": "ambush_and_burst",
+        "system": {
+          "positioning": "stealth",
+          "priority": [
+            "open_from_stealth",
+            "burst_damage",
+            "evade",
+            "reengage"
+          ]
+        }
+      },
+      {
+        "name": "berserker_rampage",
+        "system": {
+          "positioning": "melee",
+          "priority": [
+            "charge",
+            "frenzy",
+            "bleed_strike",
+            "reckless_aoe"
+          ],
+          "riskTolerance": "extreme"
+        }
+      },
+      {
+        "name": "heal_anchor",
+        "system": {
+          "positioning": "midline",
+          "priority": [
+            "heal_tank",
+            "heal_low",
+            "cleanse",
+            "cc",
+            "light_damage"
+          ]
+        }
+      }
+    ],
+
+    /* ===================================================== */
+    /*                 CLASS BEHAVIOR PACKS                  */
+    /* ===================================================== */
+
+    "classProfiles": [
+      {
+        "name": "shadow_knight",
+        "system": {
+          "openers": ["Grasp of Creeping Night", "Terror of the Hollow King"],
+          "coreLoop": ["Touch of the Gravepact", "Heartrot Plague"],
+          "defensives": ["Gravepact Transcendence"],
+          "finishers": ["Siphon of the Pale Sovereign"]
+        }
+      },
+      {
+        "name": "warrior",
+        "system": {
+          "openers": ["Vanguard’s Challenge"],
+          "coreLoop": ["Cleaving Onslaught", "Shieldbreak Assault"],
+          "defensives": ["Fortress Stance", "Last Bastion"],
+          "finishers": ["Warborn Cataclysm"]
+        }
+      },
+      {
+        "name": "wizard",
+        "system": {
+          "openers": ["Sigil of the Fractured Mind"],
+          "coreLoop": ["Crown of the Elemental Host"],
+          "defensives": ["Aegis of the Elemental Sovereign"],
+          "finishers": ["Crown of the Elemental Sovereign"]
+        }
+      },
+      {
+        "name": "rogue",
+        "system": {
+          "openers": ["Deadeye Focus"],
+          "coreLoop": ["Knifeplay Flurry"],
+          "defensives": ["Shadow Slip"],
+          "finishers": ["Twisted Fate of the Pale King"]
+        }
+      },
+      {
+        "name": "monk",
+        "system": {
+          "openers": ["Speed Focus Technique"],
+          "coreLoop": ["Thunderkick Assault"],
+          "defensives": ["Void Dance"],
+          "finishers": ["Heel of the Worldstorm"]
+        }
+      }
+    ],
+    "monsterPacks": [ /* monster_ai_pack_spider, _wolf, _undead, etc. */ ],
+    "behaviorTrees": [ /* monster_behavior_tree, spider_behavior_tree, wolf_pack_behavior, etc. */ ]
+  }
+}

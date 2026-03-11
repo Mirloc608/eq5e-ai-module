@@ -1,0 +1,32 @@
+{
+  "name": "EQ AI NPC Templates",
+  "type": "eq-ai-npc-templates",
+  "system": {
+    "npcTemplates": [
+      {
+        "name": "Frontier Guard Captain",
+        "class": "Warrior",
+        "level": 30,
+        "faction": "FrontierGuard",
+        "aiProfile": {
+          "role": "tank",
+          "personality": "disciplined",
+          "tacticProfile": "frontline_bulwark",
+          "classProfile": "warrior",
+          "awareness": "militant"
+        },
+        "aiSocial": {
+          "tactic": "patrol_route_guard",
+          "personality": "stoic",
+          "awareness": "observant",
+          "scriptHooks": "default_social_hooks"
+        },
+        "aiEmotion": { "engine": "emotional_state_engine", "initialState": "calm" },
+        "aiMemory": { "system": "ai_memory_system" },
+        "aiReputation": { "system": "ai_reputation_system" },
+        "aiFactionReaction": { "system": "faction_reaction_system" },
+        "aiSchedule": { "system": "ai_settlement_schedule" }
+      }
+    ]
+  }
+}

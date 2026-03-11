@@ -1,0 +1,12 @@
+{
+  "name": "EQ AI World Simulation",
+  "type": "eq-ai-world-sim",
+  "system": {
+    "economy": { /* ai_economy_simulation */ },
+    "eventChains": { /* ai_event_chains */ },
+    "zoneEcology": [ /* ai_zone_ecology_forest, etc. */ ],
+    "weatherSystem": { /* ai_weather_system */ },
+    "settlementNeeds": { /* ai_settlement_needs */ },
+    "settlementRoles": { /* ai_settlement_roles */ }
+  }
+}
